@@ -1,37 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+    <head>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/png" href="assets/favicon.png" />
+        <link
+            href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="./node_modules/@fortawesome/fontawesome-free/css/all.css"
+            rel="stylesheet"
+        />
+
+        <title>Fisheye - photographe</title>
+    </head>
+    <body>
+        <header>
+            <img src="assets/images/logo.png" class="logo" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+        <main id="main">
+            <div class="photograph-header">
+                <button class="contact_button" onclick="displayModal()">
+                    Contactez-moi
+                </button>
+            </div>
+
+            <div class="container">
+                <div class="sort-menu">
+                    <p class="menu-title">Trier par</p>
+                    <span class="values" aria-valuetext="date">
+                        <div class="opt-group" aria-valuetext="close">
+                            <p>Popularité</p>
+                            <i class="fa-solid fa-caret-down"></i>
+                        </div>
+                        <div class="options">
+                            <p class="title">Title</p>
+                            <p class="date">Date</p>
+                        </div>
+                    </span>
+                </div>
+                <div class="works"></div>
+            </div>
+
+            <!-- Lightbox Modal -->
+            <div id="lightbox-modal" class="lightbox-modal">
+                <span class="lightbox-close">&times;</span>
+                <span class="lightbox-nav left-arrow">&lt;</span>
+                <img class="lightbox-content" />
+                <span class="lightbox-nav right-arrow">&gt;</span>
+                <div id="caption"></div>
+            </div>
+        </main>
+
+        <!-- _***** -->
+        <div id="contact_modal">
+            <div class="modal">
+                <header>
+                    <h2>Contactez-moi</h2>
+                    <img src="assets/icons/close.svg" onclick="closeModal()" />
+                </header>
+                <form>
+                    <div>
+                        <label>Prénom</label>
+                        <input />
+                    </div>
+                    <button class="contact_button">Envoyer</button>
+                </form>
+            </div>
+        </div>
+        <!-- _***** -->
+
+        <div class="price-likes"></div>
+
+        <script
+            type="module"
+            src="scripts/initiators/photographer_profile_init.js"
+            type="module"
+        ></script>
+        <script type="module" src="/scripts/utils/contactForm.js"></script>
+    </body>
 </html>
