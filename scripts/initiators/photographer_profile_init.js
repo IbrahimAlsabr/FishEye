@@ -1,8 +1,12 @@
 import { photographerProfile } from "../components/photographer_profile.js";
 import { photographerWorks } from "../components/photographer_profile.js";
 import { PhotographerService } from "../services/photographer_service.js";
+import { showModal } from "../components/contact_modal.js";
 
 const service = new PhotographerService();
+const urlParams = new URLSearchParams(window.location.search);
+const photographerId = urlParams.get("id");
+
 let currentIndex = 0;
 let images = [];
 
@@ -78,8 +82,6 @@ async function sortAndDisplay(photographerId, sortKey) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const photographerId = urlParams.get("id");
     let options = document.querySelector(".options");
 
     if (photographerId) {
@@ -143,7 +145,7 @@ menu.addEventListener("click", function () {
     } else {
         menu.ariaValueText = "close";
         options.style.display = "none";
-        i.style.transform = "rotate(-180deg)";
+        i.style.transform = "rotate(360deg)";
     }
 });
 
@@ -174,3 +176,18 @@ function getNbrLikes(photographerId, works) {
 
 // 	priceLikes.appendChild(likes);
 // }
+
+// document.addEventListener("DOMContentLoaded", async function () {
+//     const contactButton = document.querySelector(".contact_button"); // Access the existing button
+//     let name = await service.fetchPhotographerById(photographerId);
+//     contactButton.addEventListener("click", function () {
+//         showModal(name.getName());
+//     });
+// });
+document.addEventListener("DOMContentLoaded", function () {
+    const contactButton = document.querySelector(".contact_button"); // Access the existing button
+    // let name = await service.fetchPhotographerById(photographerId);
+    contactButton.addEventListener("click", function () {
+        showModal("name.getName()");
+    });
+});

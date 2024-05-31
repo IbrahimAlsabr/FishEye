@@ -84,6 +84,11 @@ export function photographerWorks(photographerName, media) {
             captionText.innerHTML = title;
         };
 
+        let divImg = document.createElement("div");
+        divImg.className = "div-img";
+
+        divImg.appendChild(img);
+
         let nameImg = document.createElement("p");
         nameImg.textContent = title;
 
@@ -105,7 +110,7 @@ export function photographerWorks(photographerName, media) {
         workInfo.appendChild(nameImg);
         workInfo.appendChild(likesContent);
 
-        work.appendChild(img);
+        work.appendChild(divImg);
         work.appendChild(workInfo);
 
         return work;
