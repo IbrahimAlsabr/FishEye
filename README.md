@@ -1,10 +1,12 @@
-# FishEye : Plateforme pour Photographes Freelances
+# FishEye: Platform for Freelance Photographers
+
+[Lire ce fichier en français](./README_FR.md)
 
 ## Description
 
-FishEye est une plateforme en ligne permettant aux photographes freelances de présenter et de vendre leurs photographies et vidéos. Ce projet vise à créer un site web moderne et accessible pour augmenter la visibilité des travaux des photographes. FishEye offre aux visiteurs la possibilité de contacter directement les photographes pour des engagements ou des achats.
+FishEye is an online platform that allows freelance photographers to showcase and sell their photographs and videos. This project aims to create a modern and accessible website to increase the visibility of photographers' work. FishEye offers visitors the opportunity to directly contact photographers for engagements or purchases.
 
-## Technologies Utilisées
+## Technologies Used
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -13,61 +15,57 @@ FishEye est une plateforme en ligne permettant aux photographes freelances de pr
 ![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 
-
 ## Design
 
-Le design de FishEye a été pensé pour offrir une expérience utilisateur intuitive et esthétiquement agréable, tout en mettant en avant les œuvres des photographes.
+FishEye's design was conceived to provide an intuitive and aesthetically pleasing user experience, while highlighting the work of photographers.
 
-### Interface Utilisateur
+### User Interface
 
-Le design de l'interface utilisateur a été réalisé avec un accent sur la simplicité et l'accessibilité. Les éléments visuels permettent une navigation facile et mettent en valeur les photos et vidéos des artistes.
+The user interface design focuses on simplicity and accessibility. The visual elements enable easy navigation and showcase the photographers' photos and videos effectively.
 
-### Maquettes
+### Mockups
 
-Des maquettes ont été développées pour prévisualiser le rendu final du site avant le développement. Vous pouvez voir les maquettes de chaque page principale pour comprendre la structure et le flux de l'interface utilisateur :
+Mockups were developed to preview the final look of the site before development. You can view the mockups for each main page to understand the structure and flow of the user interface:
 
-- **Page d'accueil** : Présente une liste de tous les photographes avec un aperçu rapide de leur profil.
-- **Page de profil de photographe** : Montre en détail le portfolio du photographe ainsi que des options pour contacter ou aimer leur travail.
+-   **Homepage**: Displays a list of all photographers with a quick overview of their profile.
+-   **Photographer Profile Page**: Details the photographer's portfolio along with options to contact or like their work.
 
-### Captures d'écran
+### Screenshots
 
-Voici quelques captures d'écran qui illustrent le résultat final du site :
+Here are some screenshots that illustrate the final result of the site:
 
-![Page d'accueil](./assets/screen02.png)
-![Page de profil](./assets/screen01.png)
+![Homepage](./assets/screen02.png)
+![Profile Page](./assets/screen01.png)
 
-Ces images donnent un aperçu du design interactif et réactif du site, conçu pour une large gamme de dispositifs et de tailles d'écran.
-
-
+These images provide a glimpse of the interactive and responsive design of the site, designed for a wide range of devices and screen sizes.
 
 ## Installation
 
-Suivez ces étapes pour installer et exécuter le projet FishEye sur votre machine locale pour le développement et les tests.
+Follow these steps to install and run the FishEye project on your local machine for development and testing.
 
-### Prérequis
+### Prerequisites
 
-Assurez-vous d'avoir Node.js installé sur votre machine. Si ce n'est pas le cas, vous pouvez le télécharger et l'installer depuis [Node.js official website](https://nodejs.org/).
+Ensure you have Node.js installed on your machine. If not, you can download and install it from the [official Node.js website](https://nodejs.org/).
 
-### Clonage du dépôt
+### Cloning the Repository
 
-Ouvrez votre terminal et tapez la commande suivante pour cloner le dépôt GitHub :
+Open your terminal and type the following command to clone the GitHub repository:
 `git clone https://github.com/IbrahimAlsabr/FishEye.git`
 
-### Installation des dépendances
+### Installing Dependencies
 
-Changez de répertoire pour accéder au dossier du projet cloné et installez les dépendances nécessaires :
+Change directory to access the cloned project folder and install the necessary dependencies:
 
 `cd FishEye`
 
 `npm install`
 
-### Lancement de l'application
+### Launching the Application
 
-Pour démarrer l'application, exécutez la commande suivante dans le terminal : `npm start`
+To start the application, run the following command in the terminal: `npm start`
 
-Cela lancera le serveur local et ouvrira automatiquement le projet dans votre navigateur par défaut. Si cela ne s'ouvre pas automatiquement, vous pouvez accéder à l'application en tapant `localhost:3000` dans la barre d'adresse de votre navigateur (assurez-vous que le port `3000` est le port configuré dans votre projet).
-
-
+This will launch the local server and automatically open the project in your default browser. If it does not open automatically, you can access the application by typing `localhost:3000` in your browser's address bar (ensure that port `3000` is the configured port for your project).
 
 ## Author
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/IbrahimAlsabr) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ibrahim-alsabr-188939231/)  [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/home?lang=fr)
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/IbrahimAlsabr) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ibrahim-alsabr-188939231/) [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/home?lang=en)
