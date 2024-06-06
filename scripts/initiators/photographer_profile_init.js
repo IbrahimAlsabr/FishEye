@@ -1,13 +1,12 @@
 import { photographerProfile } from "../components/photographer_profile.js";
 import { photographerWorks } from "../components/photographer_profile.js";
 import { PhotographerService } from "../services/photographer_service.js";
-import { showModal } from "../components/contact_modal.js";
+import { showModal } from "../utils/contactForm.js";
 
 const service = new PhotographerService();
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = urlParams.get("id");
 
-let currentIndex = 0;
 let images = [];
 
 async function displayPhotographerInfo(result, works) {
@@ -100,29 +99,54 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Photographer ID not found in URL");
     }
 
-    const close = document.querySelector(".lightbox-close");
-    close.onclick = function () {
-        const modal = document.getElementById("lightbox-modal");
-        modal.style.display = "none";
-    };
+    // const close = document.querySelector(".lightbox-close");
+    // close.onclick = function () {
+    //     const modal = document.getElementById("lightbox-modal");
+    //     modal.style.display = "none";
+    // };
+    // // -------------------------------------------------------------------
 
-    document.querySelector(".left-arrow").addEventListener("click", () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-        } else {
-            currentIndex = images.length - 1;
-        }
-        updateLightboxImage();
-    });
+    // /* handle Left Arrow Click */
+    // document
+    //     .querySelector(".left-arrow")
+    //     .addEventListener("click", handleLeftArrowClick);
+    // document.addEventListener("keydown", function (event) {
+    //     if (event.keyCode === 37) {
+    //         handleLeftArrowClick();
+    //     }
+    // });
 
-    document.querySelector(".right-arrow").addEventListener("click", () => {
-        if (currentIndex < images.length - 1) {
-            currentIndex++;
-        } else {
-            currentIndex = 0;
-        }
-        updateLightboxImage();
-    });
+    // function handleLeftArrowClick() {
+    //     if (currentIndex > 0) {
+    //         currentIndex--;
+    //     } else {
+    //         currentIndex = images.length - 1;
+    //     }
+    //     updateLightboxImage();
+    // }
+    // // -------------------------------------------------------------------
+
+    // /* handle Right Arrow Click */
+    // document
+    //     .querySelector(".right-arrow")
+    //     .addEventListener("click", handleRightArrowClick);
+
+    // document.addEventListener("keydown", function (event) {
+    //     if (event.keyCode === 39) {
+    //         handleRightArrowClick();
+    //     }
+    // });
+
+    // function handleRightArrowClick() {
+    //     if (currentIndex < images.length - 1) {
+    //         currentIndex++;
+    //     } else {
+    //         currentIndex = 0;
+    //     }
+    //     updateLightboxImage();
+    // }
+
+    // -------------------------------------------------------------------
 
     const modalImg = document.querySelector(".lightbox-content");
     const captionText = document.getElementById("caption");
@@ -160,34 +184,12 @@ function getNbrLikes(photographerId, works) {
     return likes;
 }
 
-// function buildLikes() {
-// 	let priceLikes = document.querySelector(".price-likes");
-// 	let likes = document.createElement("div");
-// 	likes.className = "likes";
-
-// 	let heart = document.createElement("i");
-// 	heart.className = "fa-solid fa-heart";
-
-// 	let likesNbr = document.createElement("p")
-// 	likesNbr.textContent = getNbrLikes(photographerId, works.photographers);
-
-// 	likes.appendChild(likesNbr)
-// 	likes.appendChild(heart)
-
-// 	priceLikes.appendChild(likes);
-// }
-
-// document.addEventListener("DOMContentLoaded", async function () {
-//     const contactButton = document.querySelector(".contact_button"); // Access the existing button
-//     let name = await service.fetchPhotographerById(photographerId);
-//     contactButton.addEventListener("click", function () {
-//         showModal(name.getName());
-//     });
-// });
-document.addEventListener("DOMContentLoaded", function () {
-    const contactButton = document.querySelector(".contact_button"); // Access the existing button
-    // let name = await service.fetchPhotographerById(photographerId);
+document.addEventListener("DOMContentLoaded", async function () {
+    const contactButton = document.querySelector(".contact_button");
+    let name = await service.fetchPhotographerById(photographerId);
     contactButton.addEventListener("click", function () {
-        showModal("name.getName()");
+        showModal(name.getName());
     });
 });
+
+// =================================

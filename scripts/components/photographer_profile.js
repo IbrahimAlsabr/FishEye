@@ -1,3 +1,7 @@
+let currentIndex = 0;
+
+let images = [];
+
 export function photographerProfile(data) {
     const { name, portrait, city, country, price, tagline } = data;
 
@@ -62,10 +66,15 @@ export function photographerWorks(photographerName, media) {
 
         if (mediaType === video) {
             img = document.createElement("video");
-            img.setAttribute("src", picture);
-            img.setAttribute("alt", "");
+            let source = document.createElement("source");
+            source.src = picture;
+            source.type = "video/mp4";
+
+            img.appendChild(source);
+
             img.setAttribute("width", "350px");
             img.setAttribute("height", "325px");
+            img.setAttribute("controls", "");
         } else {
             img = document.createElement("img");
             img.setAttribute("src", picture);
@@ -76,6 +85,8 @@ export function photographerWorks(photographerName, media) {
 
         img.onclick = function () {
             const modal = document.getElementById("lightbox-modal");
+            modal.innerHTML = name();
+            handleTest();
             const modalImg = document.querySelector(".lightbox-content");
             const captionText = document.getElementById("caption");
             modal.style.display = "block";
@@ -104,6 +115,20 @@ export function photographerWorks(photographerName, media) {
 
         likesContent.appendChild(heart);
 
+        heart.onclick = function () {
+            let likesNbr = document.querySelector(".price-likes .likes p");
+            if (heart.hasAttribute("liked")) {
+                likesNum.textContent = Number(likesNum.textContent) - 1;
+                heart.removeAttribute("liked");
+
+                console.log(likesNbr);
+                likesNbr.textContent = Number(likesNbr.textContent) - 1;
+            } else {
+                likesNum.textContent = Number(likesNum.textContent) + 1;
+                heart.setAttribute("liked", "true");
+                likesNbr.textContent = Number(likesNbr.textContent) + 1;
+            }
+        };
         let workInfo = document.createElement("div");
         workInfo.className = "work-info";
 
@@ -117,4 +142,61 @@ export function photographerWorks(photographerName, media) {
     }
 
     return { buildWorksContainerDOM };
+}
+
+function name() {
+    return `<span class="lightbox-close">&times;</span>
+	<span class="lightbox-nav left-arrow">&lt;</span>
+	<img class="lightbox-content" />
+	<span class="lightbox-nav right-arrow">&gt;</span>
+	<div id="caption"></div>`;
+}
+
+function handleTest() {
+    const close = document.querySelector(".lightbox-close");
+    close.onclick = function () {
+        const modal = document.getElementById("lightbox-modal");
+        modal.style.display = "none";
+    };
+    // -------------------------------------------------------------------
+
+    /* handle Left Arrow Click */
+    document
+        .querySelector(".left-arrow")
+        .addEventListener("click", handleLeftArrowClick);
+    document.addEventListener("keydown", function (event) {
+        if (event.keyCode === 37) {
+            handleLeftArrowClick();
+        }
+    });
+
+    function handleLeftArrowClick() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = images.length - 1;
+        }
+        updateLightboxImage();
+    }
+    // -------------------------------------------------------------------
+
+    /* handle Right Arrow Click */
+    document
+        .querySelector(".right-arrow")
+        .addEventListener("click", handleRightArrowClick);
+
+    document.addEventListener("keydown", function (event) {
+        if (event.keyCode === 39) {
+            handleRightArrowClick();
+        }
+    });
+
+    function handleRightArrowClick() {
+        if (currentIndex < images.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        updateLightboxImage();
+    }
 }
