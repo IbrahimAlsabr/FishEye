@@ -1,4 +1,5 @@
-import { handleInput, closeModal } from "../utils/contactForm.js";
+import { closeModal } from "../events/contactEvent.js";
+import { handleInput } from "../utils/contactForm.js";
 
 export function createContactModal(name) {
     const backdrop = document.createElement("div");
@@ -7,34 +8,46 @@ export function createContactModal(name) {
 
     const modal = document.createElement("div");
     modal.className = "modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-labelledby", "modal-heading");
+    modal.setAttribute("aria-modal", "true");
+    modal.tabIndex = -1;
 
     const header = document.createElement("header");
     modal.appendChild(header);
 
     const heading = document.createElement("h2");
-    heading.textContent = "Contactez-moi"; // Set the static text
+    heading.textContent = "Contactez-moi";
     header.appendChild(heading);
 
-    // Create a break line element
-    const breakLine = document.createElement("br");
-    heading.appendChild(breakLine);
-
-    // Create a text node for the name to ensure clean text manipulation
     const nameText = document.createTextNode(name);
     heading.appendChild(nameText);
 
     const closeImg = document.createElement("img");
     closeImg.src = "assets/icons/close.svg";
-    closeImg.onclick = function () {
-        closeModal();
+    closeImg.alt = "Close";
+    closeImg.setAttribute("role", "button");
+    closeImg.tabIndex = 0;
+    closeImg.onclick = closeModal;
+    closeImg.onkeydown = function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            closeModal();
+        }
     };
     header.appendChild(closeImg);
 
     const form = document.createElement("form");
+    form.onsubmit = function (event) {
+        event.preventDefault();
+        handleInput();
+    };
     modal.appendChild(form);
 
     const div = document.createElement("div");
     form.appendChild(div);
+
+    let firstInput = null;
 
     const fields = [
         { label: "Prénom", type: "text" },
@@ -43,7 +56,7 @@ export function createContactModal(name) {
         { label: "Message", type: "text" },
     ];
 
-    fields.forEach((field) => {
+    fields.forEach((field, index) => {
         const label = document.createElement("label");
         label.textContent = field.label;
         div.appendChild(label);
@@ -52,21 +65,25 @@ export function createContactModal(name) {
         input.id = `${field.label.toLowerCase()}-input`;
         input.type = field.type;
         div.appendChild(input);
+
+        if (index === 0) {
+            firstInput = input;
+        }
     });
 
     const button = document.createElement("button");
     button.className = "contact_button";
-    button.type = "button";
+    button.type = "submit";
     button.textContent = "Envoyer";
-
-    button.onclick = function (event) {
-        event.preventDefault();
-        handleInput();
-    };
-
     form.appendChild(button);
 
     document.getElementById("contact_modal").appendChild(modal);
+
+    if (firstInput) {
+        setTimeout(() => {
+            firstInput.focus();
+        }, 100); // Delay the focus slightly to ensure the modal is visible
+    }
 
     return { backdrop, modal };
 }

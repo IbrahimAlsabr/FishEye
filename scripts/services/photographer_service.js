@@ -40,11 +40,16 @@ export class PhotographerService {
         function getCity() {
             return photographer.city;
         }
+		
+        function getPrice() {
+            return photographer.price;
+        }
 
         return {
             photographer,
             getName,
             getCity,
+			getPrice
         };
     }
 

@@ -4,7 +4,7 @@
 
 ## Description
 
-FishEye est une plateforme en ligne permettant aux photographes freelances de présenter et de vendre leurs photographies et vidéos. Ce projet vise à créer un site web moderne et accessible pour augmenter la visibilité des travaux des photographes. FishEye offre aux visiteurs la possibilité de contacter directement les photographes pour des engagements ou des achats.
+FishEye est une plateforme en ligne destinée aux photographes freelances pour exposer et vendre leurs œuvres photographiques et vidéographiques. Le site se distingue par son accessibilité, permettant une navigation et interaction entièrement au clavier, y compris la navigation dans les menus déroulants et les galeries média avec les touches "Enter" et "Espace". Les visiteurs peuvent contacter directement les photographes via un formulaire accessible, et trier les œuvres par popularité, titre ou date. FishEye vise à améliorer la visibilité des photographes tout en offrant une expérience utilisateur fluide et accessible à tous.
 
 ## Technologies Utilisées
 

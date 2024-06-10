@@ -106,8 +106,6 @@ form input {
 	border-radius: 5px;
 }
 
-/*  */
-
 .photograph-header {
 	display: flex;
 	justify-content: space-between;
@@ -169,8 +167,6 @@ form input {
 	align-items: start;
 	position: relative;
 	margin-bottom: 20px;
-	/* top: 0; */
-
 }
 
 .values {
@@ -180,17 +176,22 @@ form input {
 	justify-content: left;
 	background-color: #901C1C;
 	color: white;
-	width: fit-content;
+	width: 120px;
 	border-radius: 5px;
 }
 
 .opt-group {
 	display: flex;
 	align-items: center;
+	justify-content: space-around;
 }
 
 .opt-group p {
 	margin-right: 10px;
+}
+
+.opt-group i {
+	transform: rotate(180deg);
 }
 
 .options {
@@ -244,13 +245,13 @@ form input {
 	cursor: pointer;
 }
 
-.div-img {
+.img-container {
 	overflow: hidden;
 	transition: 0.3s;
 	border-radius: 5px;
 }
 
-.div-img:hover {
+.img-container:hover {
 	transform: rotate(4deg);
 }
 
@@ -281,9 +282,6 @@ form input {
 
 }
 
-
-
-/***/
 .lightbox-modal {
 	display: none;
 	position: fixed;
@@ -348,7 +346,7 @@ form input {
 	right: 100px;
 }
 
-.price-likes {
+.price-and-likes-box {
 	background-color: #DB8876;
 	position: fixed;
 	display: flex;

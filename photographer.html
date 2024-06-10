@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <meta charset="utf-8" />
@@ -13,45 +13,40 @@
             rel="stylesheet"
         />
 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Fisheye - photographe</title>
+        <meta
+            name="description"
+            content="Explorez le portfolio de notre photographe sur Fisheye, votre plateforme dédiée à la photographie professionnelle."
+        />
     </head>
     <body>
         <header>
-            <img src="assets/images/logo.png" class="logo" />
+            <img src="assets/images/logo.png" alt="Fisheye Home" class="logo" />
         </header>
-        <main id="main">
-            <div class="photograph-header">
-                <button class="contact_button">Contactez-moi</button>
-            </div>
+        <main id="main" role="main">
+            <div class="photograph-header" role="banner"></div>
 
-            <div class="container">
-                <div class="sort-menu">
-                    <p class="menu-title">Trier par</p>
-                    <span class="values" aria-valuetext="date">
-                        <div class="opt-group" aria-valuetext="close">
-                            <p>Popularité</p>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                        <div class="options">
-                            <p class="title">Title</p>
-                            <p class="date">Date</p>
-                        </div>
-                    </span>
-                </div>
-                <div class="works"></div>
+            <div class="container" aria-label="Photography Projects">
+                <div class="sort-menu" aria-label="Sort Options"></div>
+                <div class="works" aria-label="Photographic Works"></div>
             </div>
 
             <!-- Lightbox Modal -->
-            <div id="lightbox-modal" class="lightbox-modal">
-                <!-- <span class="lightbox-close">&times;</span>
-                <span class="lightbox-nav left-arrow">&lt;</span>
-                <img class="lightbox-content" />
-                <span class="lightbox-nav right-arrow">&gt;</span>
-                <div id="caption"></div> -->
-            </div>
+            <div
+                id="lightbox-modal"
+                class="lightbox-modal"
+                aria-hidden="true"
+                role="dialog"
+                aria-labelledby="lightboxTitle"
+                aria-describedby="lightboxDescription"
+            ></div>
         </main>
 
-        <div class="price-likes"></div>
+        <div
+            class="price-and-likes-box"
+            ria-label="Pricing and Likes Information"
+        ></div>
 
         <!-- Contatc form -->
         <div id="contact_modal"></div>
@@ -64,7 +59,6 @@
         <script
             type="module"
             src="scripts/initiators/photographer_profile_init.js"
-            type="module"
         ></script>
     </body>
 </html>
