@@ -1,6 +1,8 @@
-const photographersData = require("../../data/photographers.json");
-const express = require("express");
-const cors = require("cors"); // Import CORS module
+import data from "../../data/photographers.json" assert { type: "json" };
+const { photographers, media } = data;
+
+import express from "express";
+import cors from "cors";
 const app = express();
 const port = 3000;
 
@@ -9,7 +11,7 @@ app.use(cors());
 
 // Serve photographers data at a specific route
 app.get("/api/photographers", cors(), (req, res) => {
-    res.json(photographersData.photographers);
+    res.json(photographers);
 });
 
 // Serve a specific photographer by ID
@@ -17,7 +19,7 @@ app.get("/api/photographerMedia/:id", cors(), (req, res) => {
     const id = parseInt(req.params.id);
     const dataByID = [];
 
-    photographersData.media.forEach((element) => {
+    media.forEach((element) => {
         element.photographerId === id ? dataByID.push(element) : null;
     });
 
