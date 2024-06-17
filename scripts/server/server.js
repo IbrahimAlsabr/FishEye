@@ -1,32 +1,35 @@
-import data from "../../data/photographers.json" assert { type: "json" };
-const { photographers, media } = data;
-
 import express from "express";
 import cors from "cors";
+import fs from "fs";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Now, use __dirname as you would in a CommonJS module
+const data = JSON.parse(
+    fs.readFileSync(`${__dirname}/../../data/photographers.json`, "utf8")
+);
+const { photographers, media } = data;
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Use the PORT environment variable
 
-// Use CORS middleware - this applies CORS to all your routes
-app.use(cors());
+app.use(cors()); // Apply CORS to all routes
 
-// Serve photographers data at a specific route
+// Serve photographers data
 app.get("/api/photographers", cors(), (req, res) => {
     res.json(photographers);
 });
 
-// Serve a specific photographer by ID
+// Serve specific photographer by ID
 app.get("/api/photographerMedia/:id", cors(), (req, res) => {
     const id = parseInt(req.params.id);
-    const dataByID = [];
-
-    media.forEach((element) => {
-        element.photographerId === id ? dataByID.push(element) : null;
-    });
-
+    const dataByID = media.filter((item) => item.photographerId === id);
     res.json(dataByID);
 });
 
-// Start the server
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
 });
