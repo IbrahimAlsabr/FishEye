@@ -3,7 +3,9 @@ export function getPhotographerMediaSources(
     firstNamePhotographer
 ) {
     return photographerMedia.map((gallery) => ({
-        src: `assets/photographers/${firstNamePhotographer}/${gallery.image}`,
+        src: `assets/photographers/${firstNamePhotographer}/${
+            gallery.image === undefined ? gallery.video : gallery.image
+        }`,
         alt: gallery.title,
     }));
 }

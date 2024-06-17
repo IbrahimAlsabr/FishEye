@@ -80,7 +80,7 @@ export function PhotographerGalleryFactory(photographerName, media) {
                 updateLikesCount.call(heartIcon);
             }
         });
-		
+
         return info;
     }
 

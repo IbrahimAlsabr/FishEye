@@ -1,4 +1,5 @@
 import { images } from "../initiators/photographer_profile_init.js";
+import { lightboxFactory } from "../components/lightBox.js";
 
 let currentIndex = 0;
 
@@ -50,9 +51,15 @@ function handleRightArrowClick() {
 }
 
 function updateLightboxImage() {
-    const modalImg = document.querySelector(".lightbox-content");
-    const captionText = document.getElementById("caption");
+    let type;
 
-    modalImg.src = images[currentIndex].src;
-    captionText.innerHTML = images[currentIndex].alt;
+    document
+        .querySelector(".lightbox-modal")
+        .removeChild(document.querySelector(".lightbox-content"));
+
+    images[currentIndex].src.slice(-3) === "mp4"
+        ? (type = "video")
+        : (type = "image");
+
+    lightboxFactory(images[currentIndex].src, type).createLightbox();
 }

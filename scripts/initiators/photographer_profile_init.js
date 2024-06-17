@@ -13,6 +13,8 @@ const photographerId = urlParams.get("id");
 
 export let images = [];
 
+
+
 /**
  * Displays photographer information by fetching data, sorting works, and updating the UI.
  * @param {string} sortKey - Key used for sorting photographer's media.

@@ -17,7 +17,7 @@ export function createContactModal(name) {
     modal.appendChild(header);
 
     const heading = document.createElement("h2");
-    heading.textContent = "Contactez-moi";
+    heading.innerHTML = `Contactez-moi <br/>`;
     header.appendChild(heading);
 
     const nameText = document.createTextNode(name);
@@ -82,7 +82,7 @@ export function createContactModal(name) {
     if (firstInput) {
         setTimeout(() => {
             firstInput.focus();
-        }, 100); // Delay the focus slightly to ensure the modal is visible
+        }, 50);
     }
 
     return { backdrop, modal };

@@ -16,7 +16,7 @@ export function lightboxFactory(src, type) {
     function createCloseButton() {
         const closeButton = document.createElement("span");
         closeButton.className = "lightbox-close";
-		closeButton.setAttribute("aria-label", "Close lightbox");
+        closeButton.setAttribute("aria-label", "Close lightbox");
         closeButton.innerHTML = "&times;";
         closeButton.addEventListener("click", () => closeLightbox());
 
@@ -29,7 +29,7 @@ export function lightboxFactory(src, type) {
     function createLeftArrow() {
         const leftArrowButton = document.createElement("span");
         leftArrowButton.className = "lightbox-nav left-arrow";
-		leftArrowButton.setAttribute("aria-label", "Previous image");
+        leftArrowButton.setAttribute("aria-label", "Previous image");
         leftArrowButton.innerHTML = "&lt;";
         leftArrowButton.addEventListener("click", () => navigateToLeftImage());
         document.addEventListener("keydown", () => navigateToLeftImageByKey());
@@ -41,14 +41,16 @@ export function lightboxFactory(src, type) {
      * Creates and returns a right arrow navigation button for the lightbox.
      */
     function createRightArrow() {
-        const rightArrowButton  = document.createElement("span");
-        rightArrowButton .className = "lightbox-nav right-arrow";
-		rightArrowButton.setAttribute("aria-label", "Next image");
-        rightArrowButton .innerHTML = "&gt;";
-        rightArrowButton .addEventListener("click", () => navigateToRightImage());
+        const rightArrowButton = document.createElement("span");
+        rightArrowButton.className = "lightbox-nav right-arrow";
+        rightArrowButton.setAttribute("aria-label", "Next image");
+        rightArrowButton.innerHTML = "&gt;";
+        rightArrowButton.addEventListener("click", () =>
+            navigateToRightImage()
+        );
         document.addEventListener("keydown", () => navigateToRightImageByKey());
 
-        return rightArrowButton ;
+        return rightArrowButton;
     }
 
     /**
@@ -79,7 +81,7 @@ export function lightboxFactory(src, type) {
     function createVideoLightbox() {
         const video = document.createElement("video");
         video.className = "lightbox-content";
-		video.setAttribute("aria-label", "Displayed video");
+        video.setAttribute("aria-label", "Displayed video");
         video.controls = "true";
         video.innerHTML = `<source src="${src}" type="video/mp4">`;
 
